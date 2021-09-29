@@ -1,4 +1,5 @@
-const req_body = require('./req_body_unique_share');
+const dynamicRequest = require('./req_body_unique_share');
+const staticRequest = require('./req_body_non_unique_share');
 const loadtest = require('loadtest');
 
 function statusCallback(error, result, latency) {
@@ -17,7 +18,8 @@ const options = {
   // timeout: 1000,
   contentType: "application/json",
   method: 'POST',
-  body: req_body,
+  body: dynamicRequest,
+  // body: staticRequest,
   statusCallback: statusCallback
 };
 
